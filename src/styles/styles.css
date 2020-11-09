@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
+
+:root {
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+input {
+  margin: 20px;
+  font-family: 'Henny Penny', cursive;
+  border-radius: 30px;
+  padding: 10px 15px;
+  min-width: 300px;
+  border: transparent;
+  outline: none;
+  box-shadow: 1px 1px 2px black;
+  font-size: 20px;
+}
+
+body {
+  font-family: 'Henny Penny', cursive;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.title {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 50px;
+}
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 150px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.stats-item {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+
+.photo-card {
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  /* border: 4px solid#36454f; */
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    -23px 0 20px -23px rgba(0, 0, 0, 0.6), 23px 0 20px -23px rgba(0, 0, 0, 0.6),
+    inset 0 0 40px rgba(0, 0, 0, 0.1);
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.is-hidden {
+  display: none;
+}
+button {
+  display: inline-block;
+  margin: 10px;
+  border: 3px solid #ff6c00;
+  background-color: #fff;
+
+  border-radius: 25px;
+  width: 160px;
+  height: 40px;
+  padding: 0px;
+
+  font-size: 24px;
+  font-family: 'Henny Penny', cursive;
+
+  font-weight: 700;
+  color: #303030;
+}
+
+button:focus,
+button:hover {
+  background-color: #ff6c00;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
+  color: #fff;
+  outline: none;
+}
