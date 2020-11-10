@@ -27,6 +27,7 @@ export default class LoadMoreBtn {
 
   show() {
     this.refs.button.classList.remove('is-hidden');
+    // window.scrollTo(0, 1000);
   }
 
   hide() {

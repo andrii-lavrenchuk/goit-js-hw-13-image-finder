@@ -2,7 +2,7 @@ import ImagesApiService from './js/apiService';
 import imagesTmpl from './templates/imagesTmpl.hbs';
 import './styles/styles.css';
 import LoadMoreBtn from './js/loadMoreBtn';
-import { info, error } from '@pnotify/core';
+import { info } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 import { onOpenModal } from './js/modal';
@@ -48,7 +48,14 @@ function fetchImages() {
   imagesApiService.fetchImages().then(images => {
     appendImagesMarkup(images);
     loadMoreBtn.enable();
+    // console.dir(document.documentElement);
+    window.scrollBy({
+      top: 500,
+      behavior: 'smooth',
+    });
   });
+
+  //   console.log('Клік в кнопку показати більше');
 }
 
 function appendImagesMarkup(images) {
