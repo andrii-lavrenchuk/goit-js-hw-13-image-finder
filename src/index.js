@@ -2,11 +2,16 @@ import ImagesApiService from './js/apiService';
 import imagesTmpl from './templates/imagesTmpl.hbs';
 import './styles/styles.css';
 import LoadMoreBtn from './js/loadMoreBtn';
+import { info, error } from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css';
+import { onOpenModal } from './js/modal';
 
 const refs = {
   searchForm: document.querySelector('.search-form'),
   imagesContainer: document.querySelector('.gallery'),
   //   loadMoreBtn: document.querySelector('[data-action="load-more"]'),
+  imagesContainer: document.querySelector('.gallery'),
 };
 
 const loadMoreBtn = new LoadMoreBtn({
@@ -20,6 +25,7 @@ const imagesApiService = new ImagesApiService();
 loadMoreBtn.enable();
 
 refs.searchForm.addEventListener('submit', onSearch);
+refs.imagesContainer.addEventListener('click', onOpenModal);
 loadMoreBtn.refs.button.addEventListener('click', fetchImages);
 
 function onSearch(e) {
@@ -28,7 +34,7 @@ function onSearch(e) {
   imagesApiService.query = e.currentTarget.elements.query.value;
 
   if (imagesApiService.query === '') {
-    return alert('hkjhkjh');
+    return onMatchesNotFound();
   }
   loadMoreBtn.show();
   imagesApiService.resetPage();
@@ -51,4 +57,12 @@ function appendImagesMarkup(images) {
 
 function clearImagesContainer() {
   refs.imagesContainer.innerHTML = '';
+}
+
+function onMatchesNotFound() {
+  info({
+    title: 'Matches no found',
+    text: 'Please, try again',
+    delay: 1500,
+  });
 }
