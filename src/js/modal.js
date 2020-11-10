@@ -3,7 +3,6 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 
 function onOpenModal(e) {
   if (e.target.nodeName !== 'IMG') {
-    console.log('Не картинка');
     return;
   }
   console.log(e.target);

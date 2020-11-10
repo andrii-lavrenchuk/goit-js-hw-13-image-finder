@@ -10,7 +10,6 @@ import { onOpenModal } from './js/modal';
 const refs = {
   searchForm: document.querySelector('.search-form'),
   imagesContainer: document.querySelector('.gallery'),
-  //   loadMoreBtn: document.querySelector('[data-action="load-more"]'),
   imagesContainer: document.querySelector('.gallery'),
 };
 
@@ -20,7 +19,6 @@ const loadMoreBtn = new LoadMoreBtn({
 });
 
 const imagesApiService = new ImagesApiService();
-// console.log(loadMoreBtn);
 
 loadMoreBtn.enable();
 
@@ -48,14 +46,11 @@ function fetchImages() {
   imagesApiService.fetchImages().then(images => {
     appendImagesMarkup(images);
     loadMoreBtn.enable();
-    // console.dir(document.documentElement);
     window.scrollBy({
       top: 500,
       behavior: 'smooth',
     });
   });
-
-  //   console.log('Клік в кнопку показати більше');
 }
 
 function appendImagesMarkup(images) {
